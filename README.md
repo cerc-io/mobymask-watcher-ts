@@ -1,6 +1,6 @@
-# MobyMask Watcher 
+# MobyMask Watcher
 
-First try the [mobymask demo in stack orchestrator](https://github.com/cerc-io/stack-orchestrator/tree/main/app/data/stacks/mobymask) to quickly get started. Advanced users can see [here](/docs/README.md) for instructions on setting up a local environment by hand. 
+First try the [mobymask demo in stack orchestrator](https://github.com/cerc-io/stack-orchestrator/tree/main/app/data/stacks/mobymask) to quickly get started. Advanced users can see [here](https://github.com/cerc-io/watcher-ts/docs/README.md) for instructions on setting up a local environment by hand.
 
 ## Setup
 
@@ -33,7 +33,7 @@ Next, clone the MobyMask repo and checkout this branch:
 
 ```bash
 git clone https://github.com/cerc-io/MobyMask && cd MobyMask
-git checkout use-laconic-watcher-as-hosted-index
+git checkout v0.1.2
 ```
 
 Install the packages:
@@ -88,7 +88,7 @@ query {
   isPhisher(
     blockHash: "LATEST_BLOCK_HASH"
     contractAddress: "MOBY_ADDRESS"
-    key0: "TWT:phishername"
+    key0: "phisherName"
   ) {
     value
     proof {
@@ -98,7 +98,7 @@ query {
   isMember(
     blockHash: "LATEST_BLOCK_HASH"
     contractAddress: "MOBY_ADDRESS"
-    key0: "TWT:membername"
+    key0: "memberName"
   ) {
     value
     proof {
@@ -135,7 +135,7 @@ subscription {
 Update isPhiser and isMember lists with names
 
 ```bash
-yarn claimPhisher --contract $MOBY_ADDRESS --name phisherName 
+yarn claimPhisher --contract $MOBY_ADDRESS --name phisherName
 ```
 
 ```bash
@@ -153,18 +153,18 @@ query {
   isPhisher(
     blockHash: "EVENT_BLOCK_HASH"
     contractAddress: "MOBY_ADDRESS",
-    key0: "TWT:phishername"
+    key0: "phisherName"
   ) {
     value
     proof {
       data
     }
   }
-  
+
   isMember(
     blockHash: "EVENT_BLOCK_HASH"
     contractAddress: "MOBY_ADDRESS",
-    key0: "TWT:membername"
+    key0: "memberName"
   ) {
     value
     proof {
